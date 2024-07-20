@@ -40,4 +40,4 @@ lerna-debug.log*
 # AWS CDK
 cdk.context.json
 cdk.out
-/deploy/config.ts
+.env
