@@ -6,10 +6,10 @@ export class Product {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
+    @Column({ type: 'varchar', length: 255 })
     title: string;
 
-    @Column()
+    @Column({ type: 'text' })
     description: string;
 
     @Column('decimal', {precision: 10, scale:2})

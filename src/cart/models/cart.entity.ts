@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany,CreateDateColumn,UpdateDateColumn } from 'typeorm';
 import { CartItem } from './cart-item.entity';
 
 export enum CartStatuses {
@@ -11,18 +11,26 @@ export class Cart {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({type: 'uuid'})
   user_id: string;
 
-  @Column()
-  created_at: string;
+  //TODO: remove commented code
+  // @Column({ type: 'varchar', length: 255 })
+  // created_at: string;
 
-  @Column()
-  updated_at: string;
+  // @Column({ type: 'varchar', length: 255 })
+  // updated_at: string;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  created_at: Date;
+
+  @UpdateDateColumn({ type: 'timestamp' })
+  updated_at: Date;
 
   @Column({
     type: 'enum',
     enum: CartStatuses,
+    default: CartStatuses.OPEN
   })
   status: CartStatuses;
 

@@ -30,8 +30,8 @@ export class CartService {
     const cart = new Cart();
     cart.id = uuidv4();
     cart.user_id = userId;
-    cart.created_at = new Date().toISOString();
-    cart.updated_at = new Date().toISOString();
+    cart.created_at = new Date();
+    cart.updated_at = new Date();
     cart.status = CartStatuses.OPEN;
     cart.items = [];
 
