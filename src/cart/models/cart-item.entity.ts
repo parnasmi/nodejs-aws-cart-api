@@ -1,10 +1,14 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Cart } from './cart.entity';
+import { Product } from './product.entity';
 
 @Entity({ name: 'cart_items' })
 export class CartItem {
   @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  cart_id: string;
 
   @ManyToOne(() => Cart, (cart) => cart.items)
   @JoinColumn({ name: 'cart_id' })
@@ -13,6 +17,10 @@ export class CartItem {
   @Column()
   product_id: string;
 
-  @Column()
+  @ManyToOne(() => Product)
+  @JoinColumn({ name: 'product_id' })
+  product: Product;
+
+  @Column('int')
   count: number;
 }

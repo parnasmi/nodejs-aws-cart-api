@@ -1,6 +1,11 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { CartItem } from './cart-item.entity';
 
+export enum CartStatuses {
+  OPEN = 'OPEN',
+  STATUS = 'STATUS'
+}
+
 @Entity({ name: 'carts' })
 export class Cart {
   @PrimaryGeneratedColumn('uuid')
@@ -10,16 +15,16 @@ export class Cart {
   user_id: string;
 
   @Column()
-  created_at: Date;
+  created_at: string;
 
   @Column()
-  updated_at: Date;
+  updated_at: string;
 
   @Column({
     type: 'enum',
-    enum: ['OPEN', 'ORDERED'],
+    enum: CartStatuses,
   })
-  status: string;
+  status: CartStatuses;
 
   @OneToMany(() => CartItem, (cartItem) => cartItem.cart)
   items: CartItem[];
