@@ -2,7 +2,7 @@ import * as cdk from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as nodejs from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
-import { RDS_CONNECTION_URL, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } from './config';
+import { RDS_CONNECTION_URL, DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, DB_NAME } from '../config';
 
 export class Stack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: cdk.StackProps) {
