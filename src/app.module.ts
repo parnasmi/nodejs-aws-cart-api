@@ -16,16 +16,6 @@ import { typeOrmConfig } from 'typeorm.config';
     ConfigModule.forRoot({
       isGlobal:true
     }),
-    // TypeOrmModule.forRoot({
-    //   type: 'postgres',
-    //   host:DB_HOST,
-    //   port: parseInt(DB_PORT, 10),
-    //   username:DB_USERNAME,
-    //   password:DB_PASSWORD,
-    //   database:DB_NAME,
-    //   entities:[Cart, CartItem],
-    //   synchronize:true
-    // }),
     TypeOrmModule.forRoot(typeOrmConfig),
     TypeOrmModule.forFeature([Cart, CartItem]),
     AuthModule,
