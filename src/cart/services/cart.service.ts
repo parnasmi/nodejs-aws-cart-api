@@ -49,14 +49,6 @@ export class CartService {
   }
 
   async updateByUserId(userId: string, items: CartItem[]): Promise<Cart> {
-    //TODO: remove commented code
-
-    // const cart = await this.findOrCreateByUserId(userId);
-    // cart.items = items;
-    // cart.updated_at = new Date().toISOString();
-
-    // await this.cartItemRepository.save(items);
-    // return this.cartRepository.save(cart);
 
     const cart = await this.findByUserId(userId);
 
@@ -76,8 +68,6 @@ export class CartService {
   async removeByUserId(userId: string): Promise<void> {
     const cart = await this.findByUserId(userId);
     if (cart) {
-      // await this.cartItemRepository.delete({ cart: { id: cart.id } });
-      // await this.cartRepository.delete(cart.id);
       await this.cartItemRepository.remove(cart.items);
       await this.cartRepository.remove(cart);
     }
