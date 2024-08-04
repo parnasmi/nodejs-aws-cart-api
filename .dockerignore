@@ -1,0 +1,9 @@
+node_modules
+dist
+README.md
+.git
+.gitignore
+npm-debug.log
+
+// CDK asset staging directory
+cdk.out

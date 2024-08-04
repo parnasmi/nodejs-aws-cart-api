@@ -20,6 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "deploy": "cdk deploy",
     "deploy:env": "dotenv -e .env cdk deploy",
+    "deploy:eb": "eb deploy",
     "destroy": "cdk destroy",
     "format": "prettier --write src test deploy"
   },
