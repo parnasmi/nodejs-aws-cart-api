@@ -41,4 +41,3 @@ lerna-debug.log*
 cdk.context.json
 cdk.out
 .env
-.env.docker
